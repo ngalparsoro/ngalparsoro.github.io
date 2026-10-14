@@ -1,0 +1,327 @@
+/* Portfolio de Nora Galparsoro. La paleta y las letras son las de las portadas de los vídeos:
+   portada oscura con naranja, contenido claro; cada proyecto con su color. */
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('fuentes/montserrat.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('fuentes/inter.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('fuentes/ibm-plex-mono.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --fondo: #f5f6f8;
+  --superficie: #ffffff;
+  --texto: #16181d;
+  --texto-2: #464b56;
+  --texto-3: #646a76;
+  --borde: #e2e4e9;
+  --chip: #eef0f3;
+  --sombra: 0 1px 2px rgb(16 18 24 / 6%), 0 12px 32px rgb(16 18 24 / 10%);
+
+  --oscuro: #16171b;
+  --naranja: #f2a03a;
+
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --titulo: 'Montserrat', var(--sans);
+  --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --ancho: 1200px;
+  --margen: clamp(16px, 4vw, 40px);
+
+  color-scheme: light dark;
+}
+
+/* Cada proyecto: su color oscuro (sobre claro) y claro (sobre oscuro). */
+.p-behatokiak    { --acento-o: #946200; --acento-c: #e9b04a; }
+.p-panel-of      { --acento-o: #a95a0c; --acento-c: #f2a03a; }
+.p-mitumi        { --acento-o: #0a7280; --acento-c: #4fd1df; }
+.p-jobscout      { --acento-o: #4c43c4; --acento-c: #a8a3ff; }
+.p-mantenimiento { --acento-o: #b04c0a; --acento-c: #f5913a; }
+.p-clima         { --acento-o: #bb3418; --acento-c: #f57a4a; }
+body             { --acento-o: #a95a0c; --acento-c: #f2a03a; }
+.portada         { --acento-o: var(--naranja); --acento-c: var(--naranja); }
+* { --acento: var(--acento-o); }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #101114;
+    --superficie: #191a1f;
+    --texto: #eceef2;
+    --texto-2: #b9bdc6;
+    --texto-3: #8d929d;
+    --borde: #2a2c33;
+    --chip: #22242a;
+    --sombra: 0 1px 2px rgb(0 0 0 / 30%), 0 12px 32px rgb(0 0 0 / 40%);
+  }
+  * { --acento: var(--acento-c); }
+  .portada { border-bottom: 1px solid var(--borde); }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font: 400 1rem/1.6 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--acento); outline-offset: 3px; border-radius: 4px; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+.saltar {
+  position: absolute; left: 16px; top: -48px; z-index: 10;
+  padding: 8px 14px; border-radius: 8px;
+  background: var(--naranja); color: var(--oscuro); font-weight: 600; text-decoration: none;
+}
+.saltar:focus { top: 12px; }
+
+.ceja {
+  margin: 0 0 12px;
+  font: 400 0.8125rem/1.4 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--acento);
+}
+
+/* ---------- Portada ---------- */
+
+.portada {
+  color: #ffffff;
+  background:
+    radial-gradient(60% 70% at 85% 10%, rgb(242 160 58 / 22%), transparent 70%),
+    radial-gradient(50% 60% at 0% 100%, rgb(242 160 58 / 8%), transparent 70%),
+    var(--oscuro);
+  padding: 0 var(--margen) clamp(40px, 7vw, 72px);
+}
+.portada :focus-visible { outline-color: var(--naranja); }
+
+.barra {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+}
+.marca {
+  font: 700 1rem/1 var(--titulo);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.idiomas { display: flex; gap: 4px; }
+.idiomas a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font: 400 0.8125rem/1 var(--mono);
+  letter-spacing: 0.08em;
+  color: #a9adb6;
+  text-decoration: none;
+}
+.idiomas a:hover { color: #ffffff; background: rgb(255 255 255 / 8%); }
+.idiomas a[aria-current] { color: var(--naranja); background: rgb(242 160 58 / 12%); }
+
+.portada-texto {
+  max-width: var(--ancho);
+  margin: clamp(32px, 8vw, 88px) auto 0;
+}
+.portada h1 {
+  margin: 0;
+  font: 800 clamp(2.75rem, 9vw, 5.5rem)/1 var(--titulo);
+  letter-spacing: -0.025em;
+}
+.portada h1 span { color: var(--naranja); }
+.entradilla {
+  max-width: 38em;
+  margin: 24px 0 0;
+  font-size: clamp(1.0625rem, 2.2vw, 1.25rem);
+  line-height: 1.55;
+  color: #d6d8de;
+}
+.contacto { margin: 28px 0 0; }
+
+.indice {
+  max-width: var(--ancho);
+  margin: clamp(36px, 6vw, 56px) auto 0;
+}
+.indice ol { display: flex; flex-wrap: wrap; gap: 8px; }
+.indice a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e6e7eb;
+  text-decoration: none;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+.indice a::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--acento-c);
+}
+.indice a:hover { border-color: var(--acento-c); background: rgb(255 255 255 / 5%); }
+
+/* ---------- Botones ---------- */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  background: var(--superficie);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+.boton:hover { border-color: var(--acento); color: var(--acento); }
+.boton-claro {
+  border-color: rgb(255 255 255 / 22%);
+  background: transparent;
+  color: #ffffff;
+}
+.boton-claro:hover { border-color: var(--naranja); color: var(--naranja); }
+
+/* ---------- Proyectos ---------- */
+
+main {
+  max-width: calc(var(--ancho) + 2 * var(--margen));
+  margin: 0 auto;
+  padding: 0 var(--margen);
+}
+
+.proyecto {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: center;
+  padding: clamp(48px, 7vw, 88px) 0;
+  border-bottom: 1px solid var(--borde);
+  scroll-margin-top: 16px;
+}
+
+.video { margin: 0; }
+.video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  background: var(--oscuro);
+  box-shadow: var(--sombra);
+}
+.video figcaption {
+  margin-top: 10px;
+  font: 400 0.75rem/1.4 var(--mono);
+  letter-spacing: 0.04em;
+  color: var(--texto-3);
+}
+
+.texto h2 {
+  margin: 0;
+  font: 800 clamp(1.75rem, 3.4vw, 2.5rem)/1.1 var(--titulo);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.texto h2 em { font-style: normal; color: var(--acento); }
+.sub {
+  margin: 14px 0 0;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--texto-2);
+  text-wrap: pretty;
+}
+.nota {
+  margin: 12px 0 0;
+  padding-left: 12px;
+  border-left: 2px solid var(--acento);
+  font-size: 0.9375rem;
+  color: var(--texto-2);
+}
+.meta {
+  margin: 16px 0 0;
+  font: 400 0.75rem/1.5 var(--mono);
+  letter-spacing: 0.04em;
+  color: var(--texto-3);
+}
+
+.stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.stack li {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--chip);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--texto-2);
+}
+
+.enlaces { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; }
+
+/* ---------- Más en GitHub ---------- */
+
+.otros { padding: clamp(48px, 7vw, 88px) 0; }
+.otros > h2 {
+  margin: 0 0 24px;
+  font: 800 clamp(1.5rem, 2.8vw, 2rem)/1.15 var(--titulo);
+  letter-spacing: -0.02em;
+}
+.otros > ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 16px; }
+.otros > ul > li {
+  padding: 22px 24px;
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  background: var(--superficie);
+}
+.otros h3 { margin: 0; font: 700 1.125rem/1.3 var(--titulo); }
+.otros h3 a { text-decoration: none; }
+.otros h3 a:hover { color: var(--acento); }
+.otros li p { margin: 8px 0 0; color: var(--texto-2); font-size: 0.9375rem; }
+.otros .stack { margin-top: 14px; }
+.otros > p { margin: 24px 0 0; }
+
+.pie {
+  padding: 28px var(--margen) 40px;
+  border-top: 1px solid var(--borde);
+  text-align: center;
+  font: 400 0.75rem/1.6 var(--mono);
+  color: var(--texto-3);
+}
+.pie p { margin: 0; }
+
+/* ---------- Pantallas estrechas ---------- */
+
+@media (max-width: 860px) {
+  .proyecto { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+}
+@media (max-width: 380px) {
+  .marca { font-size: 0.9375rem; }
+  .idiomas a { padding: 8px 7px; }
+}
