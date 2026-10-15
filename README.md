@@ -13,7 +13,7 @@ estilo.css          estilos (paleta y letras de las portadas de los vídeos; mod
 portfolio.js        al reproducir un vídeo se paran los demás
 videos/             <proyecto>-<idioma>.mp4 (H.264, 1080p, sin sonido, con el índice al principio)
 portadas/           el fotograma del segundo 3 de cada vídeo (scripts/portada.swift)
-og-<idioma>.jpg     la imagen que sale al compartir el enlace
+og-<idioma>.jpg     la imagen que sale al compartir el enlace (scripts/og.py)
 fuentes/            Montserrat, Inter e IBM Plex Mono alojadas aquí (licencia OFL: fuentes/LICENCIAS.txt)
 ```
 
@@ -35,6 +35,13 @@ swiftc -O -o /tmp/portada scripts/portada.swift
 ```
 
 Cada versión de un vídeo se queda en el historial de git; mejor cambiarlos pocas veces y de una vez.
+
+Si cambia el titular de la portada o el orden de los proyectos, también la imagen que sale al compartir el enlace
+(necesita Pillow, fontTools y brotli):
+
+```bash
+python3 scripts/og.py
+```
 
 ## Estadísticas
 

@@ -67,6 +67,7 @@ body             { --acento-o: #a95a0c; --acento-c: #f2a03a; }
   }
   * { --acento: var(--acento-c); }
   .portada { border-bottom: 1px solid var(--borde); }
+  .cierre { border-top: 1px solid var(--borde); }
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -157,7 +158,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   line-height: 1.55;
   color: #d6d8de;
 }
-.contacto { margin: 28px 0 0; }
+.contacto { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 0; }
 
 .indice {
   max-width: var(--ancho);
@@ -209,6 +210,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   color: #ffffff;
 }
 .boton-claro:hover { border-color: var(--naranja); color: var(--naranja); }
+.boton-acento,
+.boton-acento:hover {
+  border-color: var(--naranja);
+  background: var(--naranja);
+  color: var(--oscuro);
+}
+.boton-acento:hover { background: #f6b663; border-color: #f6b663; }
 
 /* ---------- Proyectos ---------- */
 
@@ -307,12 +315,96 @@ main {
 .otros .stack { margin-top: 14px; }
 .otros > p { margin: 24px 0 0; }
 
-.pie {
-  padding: 28px var(--margen) 40px;
+/* ---------- Trayectoria ---------- */
+
+.trayectoria {
+  padding: clamp(48px, 7vw, 88px) 0;
   border-top: 1px solid var(--borde);
+  scroll-margin-top: 16px;
+}
+.trayectoria > h2 {
+  margin: 0 0 32px;
+  font: 800 clamp(1.5rem, 2.8vw, 2rem)/1.15 var(--titulo);
+  letter-spacing: -0.02em;
+}
+.columnas {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(36px, 5vw, 64px);
+}
+.trayectoria h3 {
+  margin: 0 0 18px;
+  font: 400 0.8125rem/1.4 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--acento);
+}
+.trayectoria .hitos + h3 { margin-top: 40px; }
+
+.hitos li {
+  position: relative;
+  padding: 0 0 24px 24px;
+  border-left: 1px solid var(--borde);
+}
+.hitos li:last-child { padding-bottom: 4px; }
+.hitos li::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 5px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--acento);
+  border-radius: 50%;
+  background: var(--fondo);
+}
+.cuando {
+  margin: 0;
+  font: 400 0.75rem/1.5 var(--mono);
+  letter-spacing: 0.04em;
+  color: var(--texto-3);
+}
+.puesto { margin: 2px 0 0; font-weight: 600; line-height: 1.45; }
+.donde { font-weight: 400; color: var(--texto-2); }
+.detalle { margin: 6px 0 0; font-size: 0.9375rem; color: var(--texto-2); text-wrap: pretty; }
+.lenguas { margin: 0; color: var(--texto-2); }
+
+/* ---------- Contacto y pie ---------- */
+
+.cierre {
+  --acento-o: var(--naranja);
+  --acento-c: var(--naranja);
+  padding: clamp(56px, 8vw, 96px) var(--margen);
+  color: #ffffff;
+  background:
+    radial-gradient(55% 80% at 100% 100%, rgb(242 160 58 / 18%), transparent 70%),
+    var(--oscuro);
+  scroll-margin-top: 0;
+}
+.cierre-dentro { max-width: var(--ancho); margin: 0 auto; }
+.cierre h2 {
+  margin: 0;
+  font: 800 clamp(2rem, 5vw, 3.25rem)/1.05 var(--titulo);
+  letter-spacing: -0.025em;
+}
+.cierre p { max-width: 40em; margin: 18px 0 0; color: #d6d8de; font-size: 1.0625rem; }
+.cierre .correo { margin-top: 24px; }
+.correo a {
+  font: 700 clamp(1.25rem, 4vw, 2rem)/1.2 var(--titulo);
+  letter-spacing: -0.01em;
+  color: var(--naranja);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.correo a:hover { text-decoration: underline; text-underline-offset: 6px; }
+
+.pie {
+  padding: 24px var(--margen) 36px;
+  border-top: 1px solid rgb(255 255 255 / 8%);
+  background: var(--oscuro);
   text-align: center;
   font: 400 0.75rem/1.6 var(--mono);
-  color: var(--texto-3);
+  color: #8d929d;
 }
 .pie p { margin: 0; }
 
@@ -320,6 +412,7 @@ main {
 
 @media (max-width: 860px) {
   .proyecto { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .columnas { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 380px) {
   .marca { font-size: 0.9375rem; }

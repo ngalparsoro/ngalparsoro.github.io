@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; media-src 'self'; style-src 'self'; font-src 'self'; script-src 'self' https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com; base-uri 'none'; form-action 'none'">
 <title>Nora Galparsoro · Portfolio</title>
-<meta name="description" content="Proyectos de ciencia de datos, IA y desarrollo web de Nora Galparsoro, cada uno contado en un vídeo de unos tres minutos.">
+<meta name="description" content="Nora Galparsoro, ingeniera: producción, procesos y datos aplicados a planta. Seis proyectos contados en vídeo, trayectoria y contacto.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#16171b">
 <link rel="canonical" href="https://ngalparsoro.github.io/">
@@ -15,7 +15,7 @@
 <link rel="alternate" hreflang="x-default" href="https://ngalparsoro.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nora Galparsoro · Portfolio">
-<meta property="og:description" content="Proyectos de ciencia de datos, IA y desarrollo web de Nora Galparsoro, cada uno contado en un vídeo de unos tres minutos.">
+<meta property="og:description" content="Nora Galparsoro, ingeniera: producción, procesos y datos aplicados a planta. Seis proyectos contados en vídeo, trayectoria y contacto.">
 <meta property="og:url" content="https://ngalparsoro.github.io/">
 <meta property="og:image" content="https://ngalparsoro.github.io/og-es.jpg">
 <meta property="og:image:width" content="1200">
@@ -25,7 +25,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fuentes/montserrat.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fuentes/inter.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="estilo.css?v=6f895183e2">
+<link rel="stylesheet" href="estilo.css?v=d0e79c9db0">
 <script src="portfolio.js?v=cf2d820ee4" defer></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "63fe7f08a7044c90adf6e517d1da597f"}'></script>
 </head>
@@ -41,23 +41,59 @@
 </ul>
 </nav>
 <div class="portada-texto">
-<p class="ceja">Data Science · IA · Desarrollo web</p>
+<p class="ceja">Producción · Procesos · Datos aplicados a planta</p>
 <h1>Nora <span>Galparsoro</span></h1>
-<p class="entradilla">Ciencia de datos, inteligencia artificial y desarrollo web: del dato en bruto a la herramienta que alguien usa. Seis proyectos, cada uno contado en un vídeo de unos tres minutos.</p>
-<p class="contacto"><a class="boton boton-claro" href="https://github.com/ngalparsoro">GitHub<span aria-hidden="true">↗</span></a></p>
+<p class="entradilla">Ingeniera con más de 10 años dirigiendo producción, procesos y equipos en industria. Las dos veces que me he encontrado con información que solo existía de palabra, he construido el sistema que la puso por escrito. Aquí, seis proyectos, cada uno contado en un vídeo de unos tres minutos.</p>
+<p class="contacto">
+<a class="boton boton-acento" href="mailto:n.galparsoro@gmail.com">Escríbeme</a>
+<a class="boton boton-claro" href="#trayectoria">Trayectoria</a>
+<a class="boton boton-claro" href="https://github.com/ngalparsoro">GitHub<span aria-hidden="true">↗</span></a>
+</p>
 </div>
 <nav class="indice" aria-label="Proyectos">
 <ol>
-<li><a class="p-behatokiak" href="#behatokiak">Observatorios electorales</a></li>
 <li><a class="p-panel-of" href="#panel-of">Panel de OF</a></li>
+<li><a class="p-mantenimiento" href="#mantenimiento">Parada de máquina</a></li>
+<li><a class="p-behatokiak" href="#behatokiak">Observatorios electorales</a></li>
 <li><a class="p-mitumi" href="#mitumi">MITÜMI</a></li>
 <li><a class="p-jobscout" href="#jobscout">JobScout</a></li>
-<li><a class="p-mantenimiento" href="#mantenimiento">Parada de máquina</a></li>
 <li><a class="p-clima" href="#clima">Clima de Euskal Herria</a></li>
 </ol>
 </nav>
 </header>
 <main id="proyectos">
+<article class="proyecto p-panel-of" id="panel-of" aria-labelledby="t-panel-of">
+<figure class="video">
+<video controls muted playsinline preload="none" width="1280" height="720" poster="portadas/panel-of-es.jpg" aria-label="Vídeo: Panel de OF">
+<source src="videos/panel-of-es.mp4" type="video/mp4">
+</video>
+<figcaption>Vídeo sin sonido · 2:42</figcaption>
+</figure>
+<div class="texto">
+<p class="ceja">Digitalización industrial · Caso real</p>
+<h2 id="t-panel-of">Panel de <em>OF</em></h2>
+<p class="sub">Órdenes de fabricación en línea, sin tocar el ERP.</p>
+<p class="meta">Planta de mecanizado y montaje · empresa y datos ficticios</p>
+<ul class="stack"><li>Python</li><li>SQL · Oracle</li><li>HTML · CSS · JS</li><li>BI Publisher</li></ul>
+<p class="enlaces"><a class="boton boton-demo" href="https://ngalparsoro.github.io/panel-de-of/mockup_panel_ofs_v2.html">Abrir el panel<span aria-hidden="true">↗</span></a><a class="boton boton-codigo" href="https://github.com/ngalparsoro/panel-de-of">Código en GitHub<span aria-hidden="true">↗</span></a></p>
+</div>
+</article>
+<article class="proyecto p-mantenimiento" id="mantenimiento" aria-labelledby="t-mantenimiento">
+<figure class="video">
+<video controls muted playsinline preload="none" width="1280" height="720" poster="portadas/mantenimiento-es.jpg" aria-label="Vídeo: Predicción de parada de máquina">
+<source src="videos/mantenimiento-es.mp4" type="video/mp4">
+</video>
+<figcaption>Vídeo sin sonido · 2:25</figcaption>
+</figure>
+<div class="texto">
+<p class="ceja">Mantenimiento predictivo · Machine learning</p>
+<h2 id="t-mantenimiento">Predicción de parada de <em>máquina</em></h2>
+<p class="sub">Un sistema de tres capas que detecta la avería antes de que ocurra, con las señales que la máquina ya genera.</p>
+<p class="meta">Proyecto final · Bootcamp de Data Science · junio 2026</p>
+<ul class="stack"><li>scikit-learn</li><li>LightGBM</li><li>Isolation Forest</li><li>pandas</li><li>Streamlit</li></ul>
+<p class="enlaces"><a class="boton boton-codigo" href="https://github.com/ngalparsoro/Milling-Machine-Failure-Prediction">Código en GitHub<span aria-hidden="true">↗</span></a></p>
+</div>
+</article>
 <article class="proyecto p-behatokiak" id="behatokiak" aria-labelledby="t-behatokiak">
 <figure class="video">
 <video controls muted playsinline preload="none" width="1280" height="720" poster="portadas/behatokiak-es.jpg" aria-label="Vídeo: Observatorios electorales">
@@ -73,22 +109,6 @@
 <p class="meta">Webs públicas · 2026</p>
 <ul class="stack"><li>Python</li><li>pandas</li><li>MapLibre GL</li><li>JavaScript</li><li>GitHub Actions</li><li>Playwright</li></ul>
 <p class="enlaces"><a class="boton boton-web" href="https://hautesbehatokia.eus">hautesbehatokia.eus<span aria-hidden="true">↗</span></a><a class="boton boton-web" href="https://nazioenbehatokia.eus">nazioenbehatokia.eus<span aria-hidden="true">↗</span></a></p>
-</div>
-</article>
-<article class="proyecto p-panel-of" id="panel-of" aria-labelledby="t-panel-of">
-<figure class="video">
-<video controls muted playsinline preload="none" width="1280" height="720" poster="portadas/panel-of-es.jpg" aria-label="Vídeo: Panel de OF">
-<source src="videos/panel-of-es.mp4" type="video/mp4">
-</video>
-<figcaption>Vídeo sin sonido · 2:42</figcaption>
-</figure>
-<div class="texto">
-<p class="ceja">Digitalización industrial · Caso real</p>
-<h2 id="t-panel-of">Panel de <em>OF</em></h2>
-<p class="sub">Órdenes de fabricación en línea, sin tocar el ERP.</p>
-<p class="meta">Planta de mecanizado y montaje · empresa y datos ficticios</p>
-<ul class="stack"><li>Python</li><li>SQL · Oracle</li><li>HTML · CSS · JS</li><li>BI Publisher</li></ul>
-<p class="enlaces"><a class="boton boton-demo" href="https://ngalparsoro.github.io/panel-de-of/mockup_panel_ofs_v2.html">Abrir el panel<span aria-hidden="true">↗</span></a><a class="boton boton-codigo" href="https://github.com/ngalparsoro/panel-de-of">Código en GitHub<span aria-hidden="true">↗</span></a></p>
 </div>
 </article>
 <article class="proyecto p-mitumi" id="mitumi" aria-labelledby="t-mitumi">
@@ -124,22 +144,6 @@
 <p class="enlaces"><a class="boton boton-codigo" href="https://github.com/ngalparsoro/Agente_JobScout">Código en GitHub<span aria-hidden="true">↗</span></a></p>
 </div>
 </article>
-<article class="proyecto p-mantenimiento" id="mantenimiento" aria-labelledby="t-mantenimiento">
-<figure class="video">
-<video controls muted playsinline preload="none" width="1280" height="720" poster="portadas/mantenimiento-es.jpg" aria-label="Vídeo: Predicción de parada de máquina">
-<source src="videos/mantenimiento-es.mp4" type="video/mp4">
-</video>
-<figcaption>Vídeo sin sonido · 2:25</figcaption>
-</figure>
-<div class="texto">
-<p class="ceja">Mantenimiento predictivo · Machine learning</p>
-<h2 id="t-mantenimiento">Predicción de parada de <em>máquina</em></h2>
-<p class="sub">Un sistema de tres capas que detecta la avería antes de que ocurra, con las señales que la máquina ya genera.</p>
-<p class="meta">Proyecto final · Bootcamp de Data Science · junio 2026</p>
-<ul class="stack"><li>scikit-learn</li><li>LightGBM</li><li>Isolation Forest</li><li>pandas</li><li>Streamlit</li></ul>
-<p class="enlaces"><a class="boton boton-codigo" href="https://github.com/ngalparsoro/Milling-Machine-Failure-Prediction">Código en GitHub<span aria-hidden="true">↗</span></a></p>
-</div>
-</article>
 <article class="proyecto p-clima" id="clima" aria-labelledby="t-clima">
 <figure class="video">
 <video controls muted playsinline preload="none" width="1280" height="720" poster="portadas/clima-es.jpg" aria-label="Vídeo: El clima de Euskal Herria">
@@ -167,7 +171,41 @@
 </ul>
 <p><a class="boton" href="https://github.com/ngalparsoro?tab=repositories">Todos los repositorios<span aria-hidden="true">↗</span></a></p>
 </section>
+<section class="trayectoria" id="trayectoria" aria-labelledby="t-trayectoria">
+<h2 id="t-trayectoria">Trayectoria</h2>
+<div class="columnas">
+<div>
+<h3>Experiencia</h3>
+<ol class="hitos">
+<li><p class="cuando">2024 – 2025</p><p class="puesto">Responsable de línea <span class="donde">· Fabricante industrial, Gipuzkoa</span></p><p class="detalle">Línea de mecanizado y montaje: 16 personas, hasta 23 en punta, a tres turnos. Más de un 10 % de mejora en la producción de montaje, sostenida mientras el equipo se recomponía.</p></li>
+<li><p class="cuando">2020 – 2024</p><p class="puesto">Encargada de taller <span class="donde">· Ebakilan</span></p><p class="detalle">Corte, plegado y preprocesado de metal: 50 personas a tres turnos y más de 75 toneladas al día.</p></li>
+<li><p class="cuando">2018 – 2020</p><p class="puesto">Oficina técnica <span class="donde">· Ebakilan</span></p><p class="detalle">Impulsé la digitalización de la oficina técnica durante la pandemia: del expediente en papel a la orden en PDF. Sigue en uso seis años después.</p></li>
+<li><p class="cuando">2016 – 2017</p><p class="puesto">Técnica de calidad y costes <span class="donde">· Zegama Okindegia</span></p><p class="detalle">Un sistema de seguimiento de costes por proceso (KPIs) y un nuevo sistema de calidad.</p></li>
+<li><p class="cuando">2011 – 2015</p><p class="puesto">Concejala de Infraestructuras y Servicios Urbanos <span class="donde">· Ayuntamiento de Donostia</span></p><p class="detalle">Segunda teniente de alcalde: unos 70 M€ al año y cerca de 100 personas. La recogida selectiva de residuos pasó del 37 % al 49 %.</p></li>
+</ol>
+</div>
+<div>
+<h3>Formación</h3>
+<ol class="hitos">
+<li><p class="cuando">2026</p><p class="puesto">Bootcamp de Data Science e Inteligencia Artificial <span class="donde">· The Bridge</span></p></li>
+<li><p class="cuando">2015 – 2016</p><p class="puesto">Máster en Innovación Empresarial y Dirección de Proyectos <span class="donde">· Mondragon Unibertsitatea</span></p></li>
+<li><p class="cuando">2016</p><p class="puesto">CAPM · Certified Associate in Project Management <span class="donde">· PMI</span></p></li>
+<li><p class="cuando">2004 – 2008</p><p class="puesto">Ingeniería Técnica en Diseño Industrial y de Producto <span class="donde">· Mondragon Unibertsitatea</span></p></li>
+</ol>
+<h3>Idiomas</h3>
+<p class="lenguas">Euskera (EGA) y castellano, nativos · inglés avanzado (First Certificate; dos años en Edimburgo)</p>
+</div>
+</div>
+</section>
 </main>
+<section class="cierre" id="contacto" aria-labelledby="t-contacto">
+<div class="cierre-dentro">
+<h2 id="t-contacto">¿Hablamos?</h2>
+<p>Busco un puesto de producción u operaciones en el que la digitalización de planta forme parte del encargo, no un proyecto aparte que nadie tiene tiempo de llevar.</p>
+<p class="correo"><a href="mailto:n.galparsoro@gmail.com">n.galparsoro@gmail.com</a></p>
+<p><a class="boton boton-claro" href="https://github.com/ngalparsoro">GitHub<span aria-hidden="true">↗</span></a></p>
+</div>
+</section>
 <footer class="pie">
 <p>© 2026 Nora Galparsoro · Hecha a mano en HTML y CSS, sin frameworks · alojada en GitHub Pages</p>
 </footer>
