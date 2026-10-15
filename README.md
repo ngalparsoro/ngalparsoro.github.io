@@ -19,7 +19,8 @@ fuentes/            Montserrat, Inter e IBM Plex Mono alojadas aquí (licencia O
 
 ## Cambiar algo
 
-Los textos están en `construir.py` (`SITIO`, `PROYECTOS`, `OTROS`). Después:
+Los textos están en `construir.py` (`SITIO`, `PROYECTOS`, `OTROS`; la trayectoria en `EXPERIENCIA`, `FORMACION` y
+`LENGUAS`). Después:
 
 ```bash
 python3 construir.py
