@@ -35,3 +35,8 @@ swiftc -O -o /tmp/portada scripts/portada.swift
 ```
 
 Cada versión de un vídeo se queda en el historial de git; mejor cambiarlos pocas veces y de una vez.
+
+## Estadísticas
+
+Cloudflare Web Analytics, sin cookies: visitas por página, procedencia, país y dispositivo. La clave del sitio está en
+`ANALITICA_TOKEN` (`construir.py`); vacía, las páginas salen sin el script y con la CSP cerrada.

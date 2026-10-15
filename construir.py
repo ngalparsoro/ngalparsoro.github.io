@@ -18,6 +18,8 @@ GITHUB = 'https://github.com/ngalparsoro'
 IDIOMAS = ['es', 'eu', 'en']           # el primero va en la raíz
 LOCALE = {'es': 'es_ES', 'eu': 'eu_ES', 'en': 'en_GB'}
 NOMBRE_IDIOMA = {'es': 'Español', 'eu': 'Euskara', 'en': 'English'}
+# Cloudflare Web Analytics (sin cookies). Vacío: sin estadísticas.
+ANALITICA_TOKEN = '63fe7f08a7044c90adf6e517d1da597f'
 
 SITIO = {
     'es': {
@@ -311,6 +313,12 @@ def pagina(lang):
     e = html.escape
     pre = '' if lang == IDIOMAS[0] else '../'
     v_css, v_js = huella('estilo.css'), huella('portfolio.js')
+    if ANALITICA_TOKEN:
+        csp_cf = (" https://static.cloudflareinsights.com", "; connect-src 'self' https://cloudflareinsights.com")
+        analitica = (f'\n<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
+                     f'data-cf-beacon=\'{{"token": "{ANALITICA_TOKEN}"}}\'></script>')
+    else:
+        csp_cf, analitica = ('', ''), ''
 
     alternos = '\n'.join(f'<link rel="alternate" hreflang="{l}" href="{url_idioma(l)}">' for l in IDIOMAS)
     idiomas = '\n'.join(
@@ -359,7 +367,7 @@ def pagina(lang):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; media-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; media-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'{csp_cf[0]}{csp_cf[1]}; base-uri 'none'; form-action 'none'">
 <title>{e(t["titulo"])}</title>
 <meta name="description" content="{e(t["descripcion"])}">
 <meta name="color-scheme" content="light dark">
@@ -380,7 +388,7 @@ def pagina(lang):
 <link rel="preload" href="{pre}fuentes/montserrat.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{pre}fuentes/inter.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{pre}estilo.css?v={v_css}">
-<script src="{pre}portfolio.js?v={v_js}" defer></script>
+<script src="{pre}portfolio.js?v={v_js}" defer></script>{analitica}
 </head>
 <body>
 <a class="saltar" href="#proyectos">{t["saltar"]}</a>
