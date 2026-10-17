@@ -8,6 +8,7 @@ portadas en portadas/ (scripts/portada.swift). Cada vez que cambie algo, se vuel
 """
 import hashlib
 import html
+import json
 import re
 import struct
 from pathlib import Path
@@ -20,6 +21,8 @@ LOCALE = {'es': 'es_ES', 'eu': 'eu_ES', 'en': 'en_GB'}
 NOMBRE_IDIOMA = {'es': 'Español', 'eu': 'Euskara', 'en': 'English'}
 # Cloudflare Web Analytics (sin cookies). Vacío: sin estadísticas.
 ANALITICA_TOKEN = '63fe7f08a7044c90adf6e517d1da597f'
+# Google Search Console: el código de la etiqueta HTML (content="…"). Vacío: sin etiqueta.
+GOOGLE_VERIFICACION = 'Hw-ADADSFPw7aBg0Htl7eLaOR9YFX7mTWqMN-tlZnv8'
 
 CORREO = 'n.galparsoro@gmail.com'
 
@@ -446,6 +449,25 @@ def pagina(lang):
     else:
         csp_cf, analitica = ('', ''), ''
 
+    verificacion = (f'\n<meta name="google-site-verification" content="{e(GOOGLE_VERIFICACION)}">'
+                    if GOOGLE_VERIFICACION else '')
+    # Datos estructurados: quién es la persona de la página (Google no ejecuta este script; la CSP no lo afecta).
+    perfil = json.dumps({
+        '@context': 'https://schema.org',
+        '@type': 'ProfilePage',
+        'url': url_idioma(lang),
+        'inLanguage': lang,
+        'mainEntity': {
+            '@type': 'Person',
+            'name': 'Nora Galparsoro',
+            'url': URL,
+            'email': f'mailto:{CORREO}',
+            'description': t['descripcion'],
+            'image': f'{URL}og-{lang}.jpg',
+            'sameAs': [GITHUB],
+        },
+    }, ensure_ascii=False, indent=1).replace('</', '<\\/')
+
     alternos = '\n'.join(f'<link rel="alternate" hreflang="{l}" href="{url_idioma(l)}">' for l in IDIOMAS)
     idiomas = '\n'.join(
         f'<li><a href="{pre}{"" if l == IDIOMAS[0] else l + "/"}" lang="{l}" hreflang="{l}" '
@@ -518,7 +540,10 @@ def pagina(lang):
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="{LOCALE[lang]}">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image">{verificacion}
+<script type="application/ld+json">
+{perfil}
+</script>
 <link rel="icon" href="{pre}favicon.svg" type="image/svg+xml">
 <link rel="preload" href="{pre}fuentes/montserrat.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{pre}fuentes/inter.woff2" as="font" type="font/woff2" crossorigin>
